@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { User, UserSchema } from './schemas/user.schema';
@@ -8,9 +8,12 @@ import { UsersController } from './users.controller';
 import { Role, RoleSchema } from './schemas/role.schema';
 import { UserRole, UserRoleSchema } from './schemas/user-role.schema';
 import { RefreshToken, RefreshTokenSchema } from './schemas/refresh-token.schema';
+import { SeedService } from './seed.service';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
+    forwardRef(() => AuthModule),
     MongooseModule.forFeature([
       {
         name: User.name,
@@ -33,7 +36,7 @@ import { RefreshToken, RefreshTokenSchema } from './schemas/refresh-token.schema
 
   controllers: [UsersController],
 
-  providers: [UsersService],
+  providers: [UsersService, SeedService],
 
   exports: [UsersService],
 })

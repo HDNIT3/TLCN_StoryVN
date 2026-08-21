@@ -3,8 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
-import { RedisModule } from './redis/redis.module';
-import { UsersModule } from './users/users.module';
+import { RedisModule } from './moudle/redis/redis.module';
+import { UsersModule } from './moudle/users/users.module';
+import { MailModule } from './moudle/mail/mail.module';
+import { AuthModule } from './moudle/auth/auth.module';
 
 @Module({
   imports: [
@@ -15,8 +17,10 @@ import { UsersModule } from './users/users.module';
     DatabaseModule,
     RedisModule,
     UsersModule,
+    MailModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
