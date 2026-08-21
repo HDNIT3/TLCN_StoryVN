@@ -8,6 +8,7 @@ import { UsersController } from './users.controller';
 import { Role, RoleSchema } from './schemas/role.schema';
 import { UserRole, UserRoleSchema } from './schemas/user-role.schema';
 import { RefreshToken, RefreshTokenSchema } from './schemas/refresh-token.schema';
+import { SeedService } from './seed.service';
 
 @Module({
   imports: [
@@ -33,7 +34,7 @@ import { RefreshToken, RefreshTokenSchema } from './schemas/refresh-token.schema
 
   controllers: [UsersController],
 
-  providers: [UsersService],
+  providers: [UsersService, SeedService],
 
   exports: [UsersService],
 })

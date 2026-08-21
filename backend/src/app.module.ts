@@ -3,8 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
-import { RedisModule } from './redis/redis.module';
-import { UsersModule } from './users/users.module';
+import { RedisModule } from './moudle/redis/redis.module';
+import { UsersModule } from './moudle/users/users.module';
 
 @Module({
   imports: [
@@ -19,4 +19,4 @@ import { UsersModule } from './users/users.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
